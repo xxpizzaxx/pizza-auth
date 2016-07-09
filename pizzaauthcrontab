@@ -1,0 +1,1 @@
+  0 0 * * * www-data /opt/pizza-auth/cron.sh 2>/dev/null >/dev/null

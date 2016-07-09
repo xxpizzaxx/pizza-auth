@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Member List - {{ group }}{% endblock %}
+{% block header %}Member List - {{ group }}{% endblock %}
+{% block body %}
+<div class="row">
+	<div class="col-md-12">
+		<table class="table table-striped">
+			<tr>
+				<th>Character</th><th>Corp</th><th>Alliance</th><th>Actions</th>
+			</tr>
+			{% for user in members %}
+			<tr>
+				<td>{{ user.characterName[0] }}</td>
+				<td>{{ user.corporation[0] }}</td>
+				<td>{% if user.alliance is defined %}{{ user.alliance[0] }}{% endif %}</td>
+				<td>
+					<div class="btn-group pull-right">
+						<a class="btn btn-xs btn-success" href="/groups/admin/admin/{{ user.get_id() }}/{{ group }}">Admin</a>
+						<a class="btn btn-xs btn-info" href="/groups/admin/ping/{{ user.get_id() }}/{{ group }}">Ping</a>
+						<a class="btn btn-xs btn-danger" href="/groups/admin/remove/{{ user.get_id() }}/{{ group }}">Remove</a>
+					</div>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</div>
+</div class="row">
+{% endblock %}

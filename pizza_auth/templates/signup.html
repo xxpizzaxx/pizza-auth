@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}User Signup{% endblock %}
+{% block header %}User Signup{% endblock %}
+{% block body %}
+	<div class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+			<span class="sr-only">25% Complete</span>
+		</div>
+	</div>
+	<div class="row">
+	<form class="well form-inline span8 offset2 custom-form" name="signup" action="/signup" method="post">
+		<div class="control-group">
+			<div class="controls">
+				<h2>API Key</h2>
+				<p>For Internal access please create a key using a mask with <a href="http://community.eveonline.com/support/api-key/CreatePredefined?accessMask={{ config["auth"]["keymasks"]["internal"] }}">these</a> permissions and enter it here.</p>
+				<p>For Allied access please create a key using a mask with <a href="http://community.eveonline.com/support/api-key/CreatePredefined?accessMask={{ config["auth"]["keymasks"]["ally"] }}">these</a> permissions and enter it here.</p>
+				<p>If you want <b>Public</b> services, you can use the minimum API key mask found <a href="http://community.eveonline.com/support/api-key/CreatePredefined?accessMask={{ config["auth"]["keymasks"]["ally"] }}">here</a>, which only lets me verify who you are.
+				<div class="clearfix">
+				<label for="keyid">Key ID</label><input class="form-control" id="keyid" type="text" name="keyid"/>
+				</div>
+				<div class="clearfix">
+				<label for="vcode">Verification Code</label><input class="form-control" id="vcode" type="text" name="vcode" />
+				</div>
+			</div>
+			<br />
+			<div class="controls">
+				<button type="submit" class="btn btn-primary" value="submit" />Submit</button>
+			</div>
+	</form>
+	</div class="row">
+{% endblock %}

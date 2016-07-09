@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}User Signup{% endblock %}
+{% block header %}User Signup{% endblock %}
+{% block body %}
+	<div class="progress">
+			<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 50%;">
+			<span class="sr-only">50% Complete</span>
+		</div>
+	</div>
+
+	<h2>Pick a character</h2>
+	<div class="row">
+		<table class="table">
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Corp</th>
+				<th>Alliance</th>
+				<th>Eligibility</th>
+			</tr>
+		{% for character in characters %}
+		<tr>
+			<td>
+			<a href="/signup/{{ character.name }}">
+				<img src="http://image.eveonline.com/Character/{{ character.characterID }}_128.jpg" />
+			</td>
+			<td>
+				{{ character.name }}
+			</td>
+			<td>
+				{{ character.corporationName }}
+			</td>
+			<td>
+				{{ character.allianceName }}
+			</td>
+			<td>
+				{% if character.result=="Ineligible"%}Public Only{% else %}{{ character.result }}{% endif %}
+			</td>
+			</a>
+		</tr>
+		{% endfor %}
+		</table>
+	</div>
+{% endblock %}
