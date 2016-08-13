@@ -450,7 +450,7 @@ def signup():
 
 @app.route('/')
 def index():
-	if current_user.is_anonymous():
+	if current_user.is_anonymous:
 		return render_template("index.html")
 	else:
 		return render_template("index_user.html")

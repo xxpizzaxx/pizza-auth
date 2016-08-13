@@ -28,7 +28,7 @@
 				<a class="navbar-brand" href="/"><i class="icon-key"></i>{{ config["auth"]["allianceshort"] }} Auth
 			</a></div>
 			<nav class="collapse navbar-collapse navbar-ex1-collapse" role="navigtion">
-				{% if current_user.is_anonymous() %}
+				{% if current_user.is_anonymous %}
 				<form class="navbar-form navbar-right" name="signin" action="/login" method="POST" >
 					<a class="btn btn-default" href="/signup"><i class="icon-user"></i>
 						Register
